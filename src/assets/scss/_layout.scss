@@ -8,6 +8,7 @@
   height: calc(100vh - $header-height);
   top: $header-height;
   @apply relative overflow-y-auto;
+  @apply flex justify-center;
 }
 
 .app-slide-panel {
