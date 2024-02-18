@@ -15,7 +15,7 @@ export class AuthService {
     return this.httpClient.post<ILoginResponse>(`${apiEndpoint.AuthEndpoint.login}`, data).pipe(
       map((response) => {
         if (response) {
-          this.tokenService.setToken(response.token);
+          this.tokenService.setToken(response.accessToken);
         }
 
         return response;
@@ -24,10 +24,6 @@ export class AuthService {
   }
 
   onLogout() {
-    this.httpClient.post(`${apiEndpoint.AuthEndpoint.logout}`, '').subscribe({
-      next: () => {
-        this.tokenService.removeToken();
-      },
-    });
+    this.tokenService.removeToken();
   }
 }

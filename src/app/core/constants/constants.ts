@@ -7,8 +7,6 @@ const apiURL = 'http://localhost:3000';
 export const apiEndpoint = {
   AuthEndpoint: {
     login: `${apiURL}/login`,
-    logout: `${apiURL}/logout`,
-    loggedUser: `${apiURL}/user`,
   },
   TodoEndpoint: {
     getAllTodos: `${apiURL}/todos`,
