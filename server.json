@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "email": "joao@teste.com",
+      "password": "$2a$10$5xlmNcEUYEJe/wobMuSya.Ijm0wU3jblk1hortOUU0wXe4tz8xAmK",
+      "id": 1
+    }
+  ],
   "todos": [
     {
       "id": "978ee34e-e2b5-4ce0-810f-fb0b4b3557bd",
