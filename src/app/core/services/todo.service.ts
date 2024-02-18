@@ -19,6 +19,6 @@ export class TodoService {
   }
 
   updateTodo(id: number, data: ITodo): Observable<IResponse<ITodo>> {
-    return this.httpClient.post<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.updateTodo}`, data);
+    return this.httpClient.put<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.updateTodo}/${id}`, data);
   }
 }

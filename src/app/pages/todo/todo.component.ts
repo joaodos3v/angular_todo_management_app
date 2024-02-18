@@ -17,6 +17,7 @@ export class TodoComponent implements OnInit {
   todos: ITodo[] = [];
   todoStatus = TodoStatus;
   isSlidePanelOpen = false;
+  todoId: number | null = null;
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todoForm = this.fb.group({
@@ -47,10 +48,37 @@ export class TodoComponent implements OnInit {
   }
 
   onSubmit() {
+    // TODO: refactor this
     if (this.todoForm.valid) {
-      //
+      if (this.todoId) {
+        this.todoService.updateTodo(this.todoId, this.todoForm.value).subscribe({
+          next: (response) => {
+            this.getAllTodos();
+            this.onCloseSlidePanel();
+          },
+        });
+      } else {
+        this.todoService.addTodo(this.todoForm.value).subscribe({
+          next: (response) => {
+            this.getAllTodos();
+            this.onCloseSlidePanel();
+          },
+        });
+      }
     } else {
       this.todoForm.markAllAsTouched();
     }
+  }
+
+  onLoadTodoForm(todo: ITodo) {
+    this.todoId = todo.id!!;
+
+    this.todoForm.patchValue({
+      title: todo.title,
+      description: todo.description,
+      status: todo.status,
+    });
+
+    this.openSlidePanel();
   }
 }
