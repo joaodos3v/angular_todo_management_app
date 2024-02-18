@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ITodo } from '../models/todo.model';
+import { IResponse, ITodo } from '../models/todo.model';
+import { HttpClient } from '@angular/common/http';
+import { apiEndpoint } from '../constants/constants';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  private todos: ITodo[] = [{ id: 1, title: 'Test Title', description: 'Test Description', status: 'OPEN' }];
+  constructor(private httpClient: HttpClient) {}
 
-  constructor() {}
+  getAllTodos(): Observable<IResponse<ITodo[]>> {
+    return this.httpClient.get<IResponse<ITodo[]>>(`${apiEndpoint.TodoEndpoint.getAllTodos}`);
+  }
 
-  getAllTodos() {
-    return this.todos;
+  addTodo(data: ITodo): Observable<IResponse<ITodo>> {
+    return this.httpClient.post<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.addTodo}`, data);
+  }
+
+  updateTodo(id: number, data: ITodo): Observable<IResponse<ITodo>> {
+    return this.httpClient.post<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.updateTodo}`, data);
   }
 }
