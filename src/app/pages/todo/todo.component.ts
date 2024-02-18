@@ -31,7 +31,11 @@ export class TodoComponent implements OnInit {
   }
 
   getAllTodos() {
-    this.todos = this.todoService.getAllTodos();
+    this.todoService.getAllTodos().subscribe({
+      next: (response) => {
+        this.todos = response.data;
+      },
+    });
   }
 
   openSlidePanel() {
