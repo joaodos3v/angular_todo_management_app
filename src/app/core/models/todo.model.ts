@@ -6,7 +6,7 @@ export interface IResponse<T> {
 }
 
 export interface ITodo {
-  id?: number;
+  id?: string;
   title: string;
   description: string;
   status: ITodoType;

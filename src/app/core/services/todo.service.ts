@@ -3,6 +3,7 @@ import { IResponse, ITodo } from '../models/todo.model';
 import { HttpClient } from '@angular/common/http';
 import { apiEndpoint } from '../constants/constants';
 import { Observable } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -21,10 +22,11 @@ export class TodoService {
   }
 
   addTodo(data: ITodo): Observable<IResponse<ITodo>> {
+    data = { ...data, id: uuidv4() };
     return this.httpClient.post<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.addTodo}`, data);
   }
 
-  updateTodo(id: number, data: ITodo): Observable<IResponse<ITodo>> {
+  updateTodo(id: string, data: ITodo): Observable<IResponse<ITodo>> {
     return this.httpClient.put<IResponse<ITodo>>(`${apiEndpoint.TodoEndpoint.updateTodo}/${id}`, data);
   }
 }

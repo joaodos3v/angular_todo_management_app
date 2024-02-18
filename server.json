@@ -1,25 +1,25 @@
 {
   "todos": [
     {
-      "id": 1,
+      "id": "978ee34e-e2b5-4ce0-810f-fb0b4b3557bd",
       "title": "Test Todo",
       "description": "Description here",
       "status": "OPEN"
     },
     {
-      "id": 2,
+      "id": "09b218c0-280e-47b1-ac2f-f932634b989a",
       "title": "Todo Number 2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "status": "PROGRESS"
     },
     {
-      "id": 3,
+      "id": "5ee284be-ced4-46ec-841a-6a3ff1d4001a",
       "title": "Here another one",
       "description": "With a simple description",
       "status": "TESTING"
     },
     {
-      "id": 4,
+      "id": "5555f25f-4bb1-4e48-96ad-4d84122637ec",
       "title": "The last but not least",
       "description": "I don't know what put here",
       "status": "DONE"

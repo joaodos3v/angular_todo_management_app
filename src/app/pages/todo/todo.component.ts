@@ -17,7 +17,7 @@ export class TodoComponent implements OnInit {
   todos: ITodo[] = [];
   todoStatus = TodoStatus;
   isSlidePanelOpen = false;
-  todoId: number | null = null;
+  todoId: string | null = null;
   filterByStatus = '';
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
