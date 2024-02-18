@@ -35,7 +35,7 @@ export class TodoComponent implements OnInit {
   getAllTodos() {
     this.todoService.getAllTodos(this.filterByStatus).subscribe({
       next: (response) => {
-        this.todos = response.data;
+        this.todos = response;
       },
     });
   }
