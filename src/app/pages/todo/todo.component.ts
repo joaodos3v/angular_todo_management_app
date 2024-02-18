@@ -18,6 +18,7 @@ export class TodoComponent implements OnInit {
   todoStatus = TodoStatus;
   isSlidePanelOpen = false;
   todoId: number | null = null;
+  filterByStatus = '';
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todoForm = this.fb.group({
@@ -32,7 +33,7 @@ export class TodoComponent implements OnInit {
   }
 
   getAllTodos() {
-    this.todoService.getAllTodos().subscribe({
+    this.todoService.getAllTodos(this.filterByStatus).subscribe({
       next: (response) => {
         this.todos = response.data;
       },
@@ -45,6 +46,11 @@ export class TodoComponent implements OnInit {
 
   onCloseSlidePanel() {
     this.isSlidePanelOpen = false;
+  }
+
+  onFilterByStatus(status: string) {
+    this.filterByStatus = status;
+    this.getAllTodos();
   }
 
   onSubmit() {

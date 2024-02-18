@@ -10,8 +10,14 @@ import { Observable } from 'rxjs';
 export class TodoService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllTodos(): Observable<IResponse<ITodo[]>> {
-    return this.httpClient.get<IResponse<ITodo[]>>(`${apiEndpoint.TodoEndpoint.getAllTodos}`);
+  getAllTodos(status: string): Observable<IResponse<ITodo[]>> {
+    let queryString = '';
+
+    if (status) {
+      queryString = `status=${status}`;
+    }
+
+    return this.httpClient.get<IResponse<ITodo[]>>(`${apiEndpoint.TodoEndpoint.getAllTodos}?${queryString}`);
   }
 
   addTodo(data: ITodo): Observable<IResponse<ITodo>> {
