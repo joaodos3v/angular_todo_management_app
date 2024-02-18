@@ -12,7 +12,7 @@ export const apiEndpoint = {
   },
   TodoEndpoint: {
     getAllTodos: `${apiURL}/todos`,
-    addTodo: `${apiURL}/todo`,
+    addTodo: `${apiURL}/todos`,
     updateTodo: `${apiURL}/todo`,
   },
 };
