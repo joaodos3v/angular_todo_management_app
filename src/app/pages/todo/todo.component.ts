@@ -46,6 +46,8 @@ export class TodoComponent implements OnInit {
 
   onCloseSlidePanel() {
     this.isSlidePanelOpen = false;
+    this.todoId = null;
+    this.todoForm.reset();
   }
 
   onFilterByStatus(status: string) {
