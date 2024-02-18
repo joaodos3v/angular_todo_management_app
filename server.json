@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Test Todo",
+      "description": "Description here",
+      "status": "OPEN"
+    },
+    {
+      "id": 2,
+      "title": "Todo Number 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "status": "PROGRESS"
+    },
+    {
+      "id": 3,
+      "title": "Here another one",
+      "description": "With a simple description",
+      "status": "TESTING"
+    },
+    {
+      "id": 4,
+      "title": "The last but not least",
+      "description": "I don't know what put here",
+      "status": "DONE"
+    }
+  ]
+}
