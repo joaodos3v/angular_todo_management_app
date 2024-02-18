@@ -1,7 +1,7 @@
 <div class="flex-flex-col gap-2 p-6 bg-white rounded-lg shadow">
   <h5 class="mb-5 text-xl font-bold text-gray-900">Login Here</h5>
 
-  <form [formGroup]="loginForm" (ngSubmit)="(onSubmit)" autocomplete="off" novalidate>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
     <div class="form-group mb-3">
       <label for="">Email Address</label>
       <!-- TODO: refactor this class property -->
